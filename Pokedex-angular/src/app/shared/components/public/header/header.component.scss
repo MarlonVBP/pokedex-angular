@@ -1,0 +1,21 @@
+nav {
+  gap: 2%;
+  padding: 10px 0;
+
+  div.left,
+  div.right {
+    height: 80px;
+    border-radius: 10px;
+
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    &:hover {
+      background: #aeb3b8 !important;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+  }
+}

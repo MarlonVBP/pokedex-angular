@@ -1,0 +1,6 @@
+<header>
+  <nav class="d-flex justify-content-center align-items-center">
+    <div class="left bg-dark-subtle w-50 d-flex justify-content-center align-items-center" [routerLink]="['/']" [class.active] = "this.activeURL === ''">List-all</div>
+    <div class="right bg-dark-subtle w-50 d-flex justify-content-center align-items-center" [routerLink]="['/pokedex']" [class.active]="this.activeURL === 'pokedex'">Pokedex</div>
+  </nav>
+</header>
