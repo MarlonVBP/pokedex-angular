@@ -1,0 +1,18 @@
+footer {
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+
+  a {
+    color: rgb(68, 67, 67);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+      transition: all 0.4s ease;
+      text-decoration: underline;
+    }
+  }
+}
