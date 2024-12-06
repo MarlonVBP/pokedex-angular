@@ -1,5 +1,5 @@
 <app-header></app-header>
-<main @fadeIn class="d-flex">
+<main @fadeIn class="d-flex" *ngFor="let pokemon of this.pokemons">
   <div class="main-card">
     <div class="card-content align-items-center">
       <img src="" alt="Imagem ilustrativa do (pokemon nome)">
