@@ -1,13 +1,38 @@
 <app-header></app-header>
-<main @fadeIn class="d-flex" *ngFor="let pokemon of this.pokemons">
-  <div class="main-card">
-    <div class="card-content align-items-center">
-      <img src="" alt="Imagem ilustrativa do (pokemon nome)">
+<main @fadeIn class="d-flex align-items-center">
+  <div class="d-flex card-container">
+    <div
+      class="main-card d-flex justify-content-center align-items-center"
+      *ngFor="let personagem of this.personagens"
+      @fadeIn
+    >
+      <div
+        class="card-content d-flex justify-content-center align-items-center"
+      >
+        <img
+          src="{{ personagem.image }}"
+          alt="Imagem ilustrativa do (pokemon nome)"
+        />
+      </div>
+      <div class="card-footer d-flex align-items-center w-100">
+        <span class="card-footer-name">{{ personagem.name }}</span>
+        <span>#{{ personagem.id }}</span>
+      </div>
     </div>
-    <div class="card-footer">
-      <span class="card-footer-name">nome</span>
-      <span>#1</span>
-    </div>
+  </div>
+
+  <div class="button">
+    <button
+      (click)="this.load()"
+      type="button"
+      class="mb-3 btn btn-outline-primary"
+    >
+      @if(!this.isLoadding){ Mostrar mais }@else{
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      }
+    </button>
   </div>
 </main>
 <app-footer></app-footer>

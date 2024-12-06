@@ -4,6 +4,7 @@ import { FooterComponent } from '../../shared/components/public/footer/footer.co
 import { animate, style, transition, trigger } from '@angular/animations';
 import { BobBurgersService } from '../../services/get-personagens.service';
 import { CommonModule } from '@angular/common';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -23,14 +24,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  pokemons: any = [];
+  personagens: any = [];
+  page: number = 1;
+  isLoadding: boolean = false;
 
   constructor(private getPersonagens: BobBurgersService) {
-    getPersonagens.getAllCharacters().subscribe(
-      (response: any) =>{
-        console.log(response.results)
-        this.pokemons = response.results;
-      }
-    );
+    this.load();
+  }
+
+  load() {
+    this.isLoadding = true;
+    this.getPersonagens.getAllCharacters(this.page).subscribe((response: any) => {
+      console.log(response);
+      this.personagens = this.personagens.length > 1 ? [...this.personagens,...response.results] : response.results;
+      this.page++;
+      this.isLoadding = false;
+    });
   }
 }
